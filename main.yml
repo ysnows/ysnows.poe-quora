@@ -11,7 +11,7 @@ steps:
         value: main.js
         sort: 0
         messages: [ ]
-extensionId: ysnows.poe-quora
+extensionId: ysnows.media-quora
 logo: ns:translate
 description: "This is a self hostable, reverse-engineered API for Quora's Poe"
 async: false
@@ -60,7 +60,7 @@ options:
         menuValues: [ ]
         desc: ''
         placeholderText: "the m-b value"
-        tip: "This is the value of the cookie with the key m-b, which is present in the list of cookies used on Quora.com (not poe.com), you can simply inspect cookies in Chrome to get it."
+        tip: "This is the value of the cookie with the key m-b, which is present in the list of cookies used on Quora.com (not media.com), you can simply inspect cookies in Chrome to get it."
         textWidth: 3.6e+2
       - identifier: stream
         type: toggle

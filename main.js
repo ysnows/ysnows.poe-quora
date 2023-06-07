@@ -35,7 +35,7 @@ function main(text, contextText, completion, streamHandler) {
                 const chatId = result;
                 console.log("hello: " + chatId);
 
-                // await poe.clearContext(chatId);
+                // await media.clearContext(chatId);
 
                 await poe.sendMessage($option.message, $option.bot, chatId);
                 console.log("hello: 2" + chatId);

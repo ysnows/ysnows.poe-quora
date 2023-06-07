@@ -20,7 +20,7 @@ jobs:
         run: echo "ZIP_NAME=$(basename $(pwd)).enconvoplugin" >> $GITHUB_ENV
       # 将dist目录打成zip包
       - name: Zip Dist
-        run: zip -r $ZIP_NAME . -x "appcast.json" -x "*.github/*" -x "*.git/*" -x "*.idea/*" -x "*.scripts/*"
+        run: zip -r $ZIP_NAME . -x "appcast.json" -x "*.github/*" -x "*.git/*" -x "*.idea/*" -x "*.scripts/*" -x "*.media/*"
       # 创建Release
       - name: Create Release
         id: create_release

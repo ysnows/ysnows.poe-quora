@@ -1,6 +1,6 @@
 ### Enconvo Poe Quora 
 
-This is a reverse-engineered API for Quora's Poe that allows access to the following chatbots:
+This is a reverse-engineered Enconvo Plugin that allows access to the following chatbots:
 
 1. Sage - OpenAI (capybara)
 2. GPT-4 - OpenAI (beaver)
@@ -24,9 +24,7 @@ Find Poe Quora in the Enconvo plugin store and click install.
 
 ##### Demo
 
-<video controls>
-  <source src="./media/poe.mp4" type="video/mp4">
-</video>
+[![IMAGE ALT TEXT](https://i9.ytimg.com/vi_webp/rY157Nb5PhI/mq1.webp?sqp=CLyHhKQG-oaymwEmCMACELQB8quKqQMa8AEB-AHgB4AC0AWKAgwIABABGDIgSSh_MA8=&rs=AOn4CLB1Q0_54KV0kXtpVyRU63lk_NnHAg)](https://youtu.be/rY157Nb5PhI)
 
 
 ##### Don't know Enconvo?
@@ -35,4 +33,7 @@ Look here.： https://enconvo.com/
 
 
 
+##### Reference
+
+https://github.com/vaibhavk97/Poe
 

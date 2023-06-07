@@ -6,7 +6,7 @@ function main(text, contextText, completion, streamHandler) {
             const paramText = text || contextText.value || await Clipboard.readText();
 
             $option.cookie = `m-b=${$option.mb}`
-            $option.message = paramText
+            $option.message = contextText.value.messages
             $option.bot = $option.model
 
             if ($option.cookie === null || $option.formkey === null) {
@@ -27,7 +27,7 @@ function main(text, contextText, completion, streamHandler) {
                 const chatId = await poe.loadChatIdMap($option.bot);
                 console.log("hello: " + chatId);
 
-                await poe.clearContext(chatId);
+                // await poe.clearContext(chatId);
 
                 await poe.sendMessage($option.message, $option.bot, chatId);
 

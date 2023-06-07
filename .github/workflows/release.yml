@@ -1,0 +1,68 @@
+name: Build and Release
+
+# 定义本Action需要对仓库中的文件进行写操作的权限。
+permissions:
+  contents: write
+
+# 推送的tag中以v开头则执行此action
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-release:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v3
+      - name: Set zip file name
+        run: echo "ZIP_NAME=$(basename $(pwd)).enconvoplugin" >> $GITHUB_ENV
+      # 将dist目录打成zip包
+      - name: Zip Dist
+        run: zip -r $ZIP_NAME . -x "appcast.json" -x "*.github/*" -x "*.git/*" -x "*.idea/*" -x "*.scripts/*"
+      # 创建Release
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+      # 上传zip包
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{ env.ZIP_NAME }}
+          asset_name: ${{ env.ZIP_NAME }}
+          asset_content_type: application/zip
+
+      - name: Get last commit title
+        id: last-commit
+        run: echo "::set-output name=last_commit_title::$(git log -1 --pretty=format:%s)"
+
+      - name: Update appcast.json
+        id: run_script
+        run: |
+          output=$(python3 scripts/update_appcast.py "${{ steps.last-commit.outputs.last_commit_title }}" "${{ github.repository }}")
+          echo "version=$output" >> $GITHUB_OUTPUT
+      - name: Commit files
+        run: |
+          git config --global user.name 'ysnows'
+          git config --global user.email 'ysnows@163.com'
+          git add appcast.json
+          git commit -am 'update appcast.json'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUBTOKEN }}
+
+
+

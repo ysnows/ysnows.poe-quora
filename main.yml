@@ -1,0 +1,73 @@
+name: Poe Quora
+version: 0.0.2
+author: ysnows
+on: { }
+steps:
+  - name: ''
+    uses: javascript
+    env:
+      JSFilePath:
+        type: file-path
+        value: main.js
+        sort: 0
+        messages: [ ]
+extensionId: ysnows.poe-quora
+logo: ns:translate
+description: "This is a self hostable, reverse-engineered API for Quora's Poe"
+async: false
+homePage: https://github.com/ysnows/ysnows.poe-quora
+appCast: https://raw.githubusercontent.com/ysnows/ysnows.poe-quora/main/appcast.json
+minAppVersion: 1.2.1
+flowType: llmEngine
+options:
+  - title: Model Settings
+    items:
+      - identifier: model
+        type: menu
+        title: Model
+        defaultValue: chinchilla
+        menuValues:
+          - title: ChatGPT
+            value: chinchilla
+          - title: GPT-4
+            value: beaver
+          - title: Claude
+            value: a2
+          - title: Claude+
+            value: a2_2
+          - title: Sage
+            value: capybara
+          - title: Dragonfly
+            value: nutria
+        desc: "\u5207\u6362zh_CN\u8BED\u97F3\u89D2\u8272"
+        placeholderText: ''
+        textWidth: 2e+2
+      - identifier: formkey
+        type: text
+        title: Quora-Formkey
+        defaultValue:
+        menuValues: [ ]
+        desc: ''
+        placeholderText: "formkey"
+        tip: 'This is obtained by logging in to Quora.com, viewing the page source, and finding the "formkey" dictionary key (Normally line 14). Use its value in the Quora-Formkey field.'
+        textWidth: 3.6e+2
+      - identifier: mb
+        type: text
+        title: Quora-Cookie-m-b
+        defaultValue:
+        menuValues: [ ]
+        desc: ''
+        placeholderText: "m-b'"
+        tip: "This is the value of the cookie with the key m-b, which is present in the list of cookies used on Quora.com (not poe.com), you can simply inspect cookies in Chrome to get it."
+        textWidth: 3.6e+2
+      - identifier: stream
+        type: toggle
+        title: Stream output
+        defaultValue: 'false'
+        menuValues: [ ]
+        desc: ''
+        placeholderText: ''
+        textWidth: 2e+2
+        disable: true
+
+    desc: "\u9009\u62E9\u5BF9\u5E94\u8BED\u8A00\u7684\u8BED\u97F3"

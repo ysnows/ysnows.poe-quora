@@ -31,10 +31,12 @@ options:
             value: chinchilla
           - title: GPT-4
             value: beaver
-          - title: Claude
+          - title: Claude-instant
             value: a2
           - title: Claude+
             value: a2_2
+          - title: Claude-instant-100k
+            value: a2_100k
           - title: Sage
             value: capybara
           - title: Dragonfly
@@ -57,7 +59,7 @@ options:
         defaultValue:
         menuValues: [ ]
         desc: ''
-        placeholderText: "m-b'"
+        placeholderText: "the m-b value"
         tip: "This is the value of the cookie with the key m-b, which is present in the list of cookies used on Quora.com (not poe.com), you can simply inspect cookies in Chrome to get it."
         textWidth: 3.6e+2
       - identifier: stream

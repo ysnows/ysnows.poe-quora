@@ -24,8 +24,7 @@ function main(text, contextText, completion, streamHandler) {
                 poe.setAuth('Quora-Formkey', $option.formkey);
                 poe.setAuth('Cookie', $option.cookie);
 
-                // const chatId = await poe.loadChatIdMap($option.bot);
-                var chatId = ""
+                const chatId = await poe.loadChatIdMap($option.bot);
                 console.log("hello: " + chatId);
 
                 await poe.clearContext(chatId);

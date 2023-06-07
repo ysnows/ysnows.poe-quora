@@ -13,7 +13,7 @@ steps:
         messages: [ ]
 extensionId: ysnows.poe-quora
 logo: ns:translate
-description: "This is a self hostable, reverse-engineered API for Quora's Poe"
+description: "This is a reverse-engineered Enconvo Plugin that allows access to Poe's Chatbots"
 async: false
 homePage: https://github.com/ysnows/ysnows.poe-quora
 appCast: https://raw.githubusercontent.com/ysnows/ysnows.poe-quora/main/appcast.json

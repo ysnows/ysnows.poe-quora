@@ -1,5 +1,5 @@
 name: Poe
-version: 0.0.2
+version: 0.0.3
 author: ysnows
 on: { }
 steps:
@@ -45,7 +45,7 @@ options:
         placeholderText: ''
         textWidth: 2e+2
       - identifier: formkey
-        type: text
+        type: secure
         title: Quora-Formkey
         defaultValue:
         menuValues: [ ]
@@ -54,7 +54,7 @@ options:
         tip: 'This is obtained by logging in to Quora.com, viewing the page source, and finding the "formkey" dictionary key (Normally line 14). Use its value in the Quora-Formkey field.'
         textWidth: 3.6e+2
       - identifier: mb
-        type: text
+        type: secure
         title: Quora-Cookie-m-b
         defaultValue:
         menuValues: [ ]

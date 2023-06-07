@@ -22,7 +22,7 @@ To use this API, you will need to have the following cookies:
 Find Poe Quora in the Enconvo plugin store and click install.
 
 
-##### Demo
+##### Video Demo
 
 [![IMAGE ALT TEXT](https://i9.ytimg.com/vi_webp/rY157Nb5PhI/mq1.webp?sqp=CLyHhKQG-oaymwEmCMACELQB8quKqQMa8AEB-AHgB4AC0AWKAgwIABABGDIgSSh_MA8=&rs=AOn4CLB1Q0_54KV0kXtpVyRU63lk_NnHAg)](https://youtu.be/rY157Nb5PhI)
 

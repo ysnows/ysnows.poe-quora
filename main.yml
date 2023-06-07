@@ -1,5 +1,5 @@
 name: Poe
-version: 0.0.1
+version: 0.0.2
 author: ysnows
 on: { }
 steps:
@@ -11,7 +11,7 @@ steps:
         value: main.js
         sort: 0
         messages: [ ]
-extensionId: ysnows.media-quora
+extensionId: ysnows.poe-quora
 logo: ns:translate
 description: "This is a self hostable, reverse-engineered API for Quora's Poe"
 async: false

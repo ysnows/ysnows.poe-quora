@@ -1,6 +1,11 @@
 {
   "identifier": "ysnows.poe-quora",
   "versions": [
-
+    {
+      "version": "0.0.1",
+      "desc": "feat: 1. readme",
+      "url": "https://github.com/ysnows/ysnows.poe-quora/releases/download/v0.0.1/ysnows.poe-quora.enconvoplugin",
+      "minAppVersion": "1.2.1"
+    }
   ]
 }

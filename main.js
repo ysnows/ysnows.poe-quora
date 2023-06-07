@@ -3,10 +3,8 @@ var poe = require('./poe');
 function main(text, contextText, completion, streamHandler) {
     (async () => {
         try {
-            const paramText = text || contextText.value || await Clipboard.readText();
-
             $option.cookie = `m-b=${$option.mb}`
-            $option.message = contextText.value.messages
+            $option.message = contextText.value.messages[contextText.value.messages.length - 1].content
             $option.bot = $option.model
 
             if ($option.cookie === null || $option.formkey === null) {

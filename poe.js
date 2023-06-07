@@ -31,6 +31,9 @@ async function loadChatIdMap(bot = "a2") {
     });
 
     const responseJson = await response.json();
+    if (responseJson.errors) {
+        return {error: responseJson.errors[0].message};
+    }
     return responseJson.data.chatOfBot.chatId;
 }
 
@@ -88,25 +91,39 @@ async function getLatestMessage(bot) {
     console.log("hello: Waiting for response..." + bot);
     while (true) {
 
-        console.log("hello: Waiting for response...1");
-        // await new Promise(resolve => setTimeout(resolve, 2));
+        try {
 
-        const response = await $http.request(url, {
-            method: 'POST',
-            header: headers,
-            body: data
-        });
+            console.log("hello: Waiting for response...1");
+            // await new Promise(resolve => setTimeout(resolve, 2));
 
-        console.log("hello: Waiting for response...2");
-        const responseJson = await response.json();
-        const edges = responseJson.data.chatOfBot.messagesConnection.edges;
-        const node = edges[edges.length - 1].node;
-        text = node.text;
-        const state = node.state;
-        const authorNickname = node.authorNickname;
-        console.log(`hello: Waiting for response...3 state: ${state} authorNickname: ${authorNickname} text: ${text}`);
-        if (authorNickname === bot && state === 'complete') {
-            break;
+            const response = await $http.request(url, {
+                method: 'POST',
+                header: headers,
+                body: data
+            });
+
+            console.log("hello: Waiting for response...2" + response.statusText);
+            const responseJson = await response.json();
+
+            console.log("hello: Waiting for response...3" + JSON.stringify(responseJson));
+            if (responseJson.errors) {
+                text = responseJson.errors[0].message
+                break
+            }
+
+            const edges = responseJson.data.chatOfBot.messagesConnection.edges;
+            const node = edges[edges.length - 1].node;
+            text = node.text;
+            const state = node.state;
+            const authorNickname = node.authorNickname;
+            console.log(`hello: Waiting for response...3 state: ${state} authorNickname: ${authorNickname} text: ${text}`);
+            if (authorNickname === bot && state === 'complete') {
+                break;
+            }
+
+        } catch (e) {
+            text = e.message
+            break
         }
     }
 

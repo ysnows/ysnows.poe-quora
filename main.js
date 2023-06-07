@@ -22,12 +22,23 @@ function main(text, contextText, completion, streamHandler) {
                 poe.setAuth('Quora-Formkey', $option.formkey);
                 poe.setAuth('Cookie', $option.cookie);
 
-                const chatId = await poe.loadChatIdMap($option.bot);
+                const result = await poe.loadChatIdMap($option.bot);
+                if (result.error) {
+                    completion({
+                        result: {
+                            "type": "error",
+                            "value": result.error,
+                        },
+                    });
+                    return
+                }
+                const chatId = result;
                 console.log("hello: " + chatId);
 
                 // await poe.clearContext(chatId);
 
                 await poe.sendMessage($option.message, $option.bot, chatId);
+                console.log("hello: 2" + chatId);
 
                 const reply = await poe.getLatestMessage($option.bot);
 

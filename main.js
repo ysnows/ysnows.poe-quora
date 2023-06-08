@@ -4,7 +4,12 @@ function main(text, contextText, completion, streamHandler) {
     (async () => {
         try {
             $option.cookie = `m-b=${$option.mb}`
-            $option.message = contextText.value.messages[contextText.value.messages.length - 1].content
+            // 将所有消息通过换行拼接起来
+            
+            $option.message = contextText.value.messages.map((item) => item.content).join(`
+            
+            `)
+
             $option.bot = $option.model
 
             if ($option.cookie === null || $option.formkey === null) {
